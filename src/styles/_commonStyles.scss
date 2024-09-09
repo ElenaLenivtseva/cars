@@ -114,6 +114,7 @@ body {
     font-family: 'Inter', sans-serif;
     background: $bg;
     color: $main;
+    // font-size: 10px;
 }
 
 ol,
@@ -151,6 +152,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    font-size: 10px;
 }
 
 
@@ -164,3 +166,11 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+
+.container {
+    padding: 0 3.125%;
+}
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+}

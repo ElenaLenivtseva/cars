@@ -1,1 +1,14 @@
 @import '../../styles/commonStyles';
+
+.news {
+    &__wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 4rem;
+        row-gap: 2rem;
+        padding-bottom: 8rem;
+    }
+    &__title {
+        margin-bottom: 4rem;
+    }
+}
