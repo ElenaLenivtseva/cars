@@ -1,1 +1,26 @@
 @import '../../styles/commonStyles';
+
+.navigatePanel {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0 4rem;
+    &__left {
+        width: 20%;
+        display: flex;
+        align-items: center;
+    }
+    &__item {
+        font-size: 2rem;
+        font-weight: bold;
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+    &__line {
+        width: 80%;
+        height: 2px;
+        border-radius: 20px;
+        background: $main;
+        opacity: 0.5;
+    }
+}

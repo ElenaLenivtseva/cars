@@ -1,1 +1,78 @@
 @import '../../styles/commonStyles';
+
+.header {
+    background: linear-gradient(to bottom, rgba(45, 47, 52, 0) 0%, rgba(45, 47, 52, 0.8) 100%);
+    &__wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+        column-gap: 4rem;
+        row-gap: 2rem;
+        padding: 2.5rem 0;      
+    }
+
+    &__logo {
+        font-size: 4.8rem;
+        font-weight: bold;
+    }
+
+    &__formWrap {
+        border: 1px solid white;
+        border-radius: 100px;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: 2fr 8fr;
+        padding: 1.5rem;
+    }
+
+    &__formInput {
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        color: $main;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__formButton {
+        background: none;
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__itemIcons {
+        display: flex;
+    }
+
+    &__iconWrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid $main;
+        width: 7rem;
+        height: 7rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:not(:last-child) {
+            margin-right: 3rem;
+        }
+    }
+
+    &__line {
+        height: 2px;
+        border-radius: 20px;
+        background: $main;
+        opacity: 0.5;
+    }
+}
