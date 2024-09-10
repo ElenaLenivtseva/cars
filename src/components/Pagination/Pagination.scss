@@ -1,0 +1,23 @@
+@import '../../styles/commonStyles';
+
+.pagination {
+    padding-bottom: 10rem;
+    display: flex;
+    
+
+    &__wrap {
+        display: flex;
+       margin: 0 auto;
+    }
+
+    &__page {
+        font-size: 1.6rem;
+        cursor: pointer;
+        &:not(:last-child) {
+            margin-right: 4.4rem;
+        }
+    }
+    &__page_active {
+        color: #E1242D;
+    }
+}
