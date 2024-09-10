@@ -1,0 +1,87 @@
+@import '../../styles/commonStyles';
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "login ."
+        "email ."
+        "password button";
+    column-gap: 2.6rem;
+    row-gap: 2rem;
+
+    &__container {
+        padding: 4.8rem 2.7rem 2.7rem 2.7rem;
+        border: 1px solid $main;
+        border-radius: 2rem;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        margin-bottom: 3.2rem;
+    }
+
+    &__buttonWrap {
+        grid-area: button;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__button {
+        color: black;
+        background: $main;
+        width: 100%;
+        height: 6rem;
+        font-weight: bold;
+        font-size: 2rem;
+        border-radius: 10rem;
+        margin-top: 7%;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__login {
+        grid-area: login;
+    }
+
+    &__email {
+        grid-area: email;
+    }
+
+    &__password {
+        grid-area: password;
+    }
+
+    &__label {
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    &__input {
+        border-radius: 10rem;
+        margin: 1rem 0;
+        padding: 1.7rem 3rem;
+        background: none;
+        border: 1px solid $main;
+        font-size: 1.6rem;
+        color: $main;
+
+        &_error {
+            border: 1px solid $error;
+        }
+    }
+
+    &__error {
+        margin-top: 1rem;
+        color: $error;
+        font-size: 1.6rem;
+    }
+}
