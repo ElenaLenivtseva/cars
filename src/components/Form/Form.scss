@@ -42,6 +42,9 @@
         &:hover {
             cursor: pointer;
         }
+        &:disabled{
+            background: $error;
+        }
     }
 
     &__login {
