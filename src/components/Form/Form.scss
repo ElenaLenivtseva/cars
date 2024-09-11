@@ -42,7 +42,8 @@
         &:hover {
             cursor: pointer;
         }
-        &:disabled{
+
+        &:disabled {
             background: $error;
         }
     }
