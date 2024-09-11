@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import sliderReducer from './sliderSlice';
+import registerReducer from './registerSlice';
 
 
 export default configureStore({
 	reducer: {
-		// slider: sliderReducer,
-		
+		register: registerReducer,
 	},
 });

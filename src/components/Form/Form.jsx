@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Form.scss";
+import { useDispatch } from "react-redux";
+import { sendForm } from "../../features/registerSlice";
 
 const initialForm = {
   login: "",
@@ -14,6 +16,7 @@ function isEmailValid(value) {
 }
 
 const Form = () => {
+  const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm);
   const [disabled, setDisabled] = useState(true);
   const [loginError, setLoginError] = useState("");
@@ -142,13 +145,17 @@ const Form = () => {
       setDisabled(false)
     }
   }
-
+  function handleSumbit(e){
+    e.preventDefault()
+    dispatch(sendForm(form))
+    setForm(initialForm)
+  }
   return (
     <div className="form__container">
       <p className="form__title">
         Для того, чтобы просматривать профиль, необходимо зарегистрироваться!
       </p>
-      <form className="form">
+      <form className="form" onSubmit={handleSumbit}>
         <div className="form__labelWrap form__login">
           <label className="form__label">
             Логин
