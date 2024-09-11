@@ -2,13 +2,13 @@ import React from "react";
 import "./NavigatePanel.scss";
 import { navigatePanelSvg } from "../../icons/icons";
 
-const NavigatePanel = () => {
+const NavigatePanel = ({page, title}) => {
   return (
     <div className="navigate-panel">
       <div className="navigate-panel__left">
-        <p className="navigate-panel__item">Main Page</p>
+        <p className="navigate-panel__item">{page}</p>
         {navigatePanelSvg}
-        <p className="navigate-panel__item">Новости и анонсы</p>
+        <p className="navigate-panel__item">{title}</p>
       </div>
       <div className="line navigate-panel__item navigate-panel__line"></div>
     </div>

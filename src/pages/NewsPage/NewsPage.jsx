@@ -6,7 +6,7 @@ import Pagination from '../../components/Pagination/Pagination'
 const NewsPage = () => {
   return (
     <div className='container'>
-      <NavigatePanel/>
+      <NavigatePanel page='Main Page' title='Новости и анонсы'/>
       <News/>
       <Pagination/>
     </div>
