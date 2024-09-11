@@ -1,78 +1,72 @@
 @import '../../styles/commonStyles';
 
-.news {
-    &__wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 4rem;
-        row-gap: 2rem;
-        padding-bottom: 8rem;
+.news__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 4rem;
+    row-gap: 2rem;
+    padding-bottom: 8rem;
 
-        @include breakpoint($smallDesk) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        @include breakpoint($tablet) {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        @include breakpoint($smallTablet) {
-            grid-template-columns: 1fr;
-        }
-
-        @include breakpoint($mobile) {
-            row-gap: 1.5rem;
-        }
+    @include breakpoint($smallDesk) {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
-
-    &__header {
-        &_desktop {
-            display: block;
-            margin-bottom: 4rem;
-
-            @include breakpoint($mobile) {
-                display: none;
-            }
-        }
-
-        &_mobile {
-            display: none;
-
-            @include breakpoint($mobile) {
-                display: block;
-                margin-bottom: 2rem;
-            }
-
-        }
-
+    @include breakpoint($tablet) {
+        grid-template-columns: 1fr 1fr;
     }
 
-    &__headerTop {
-        display: flex;
-        align-items: center;
+    @include breakpoint($smallTablet) {
+        grid-template-columns: 1fr;
+    }
+
+    @include breakpoint($mobile) {
+        row-gap: 1.5rem;
+    }
+}
+
+.news__header_desktop {
+    display: block;
+    margin-bottom: 4rem;
+
+    @include breakpoint($mobile) {
+        display: none;
+    }
+}
+
+.news__header_mobile {
+    display: none;
+
+    @include breakpoint($mobile) {
+        display: block;
         margin-bottom: 2rem;
     }
 
-    &__headerArrow {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 4rem;
-        height: 4rem;
-        border-radius: 100%;
-        border: 1px solid $main;
-        margin-right: 2rem;
+}
 
-        &:hover {
-            cursor: pointer;
-        }
+.news__header-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
 
+.news__header-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    border: 1px solid $main;
+    margin-right: 2rem;
 
+    &:hover {
+        cursor: pointer;
     }
 
-    &__headerArrowSvg {
-        width: 1rem;
-        height: 1.6rem;
-    }
+
+}
+
+.news__header-arrow-svg {
+    width: 1rem;
+    height: 1.6rem;
 }

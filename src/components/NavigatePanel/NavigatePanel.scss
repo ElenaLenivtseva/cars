@@ -1,59 +1,72 @@
 @import '../../styles/commonStyles';
 
-.navigatePanel {
+.navigate-panel {
     display: flex;
     align-items: center;
     margin: 3rem 0 4rem 0;
+
     @include breakpoint($mobile) {
         margin: 1.5rem 0 2rem 0;
     }
-    &__left {
-        width: 20%;
-        display: flex;
-        align-items: center;
-        @include breakpoint($smallDesk) {
-            width: 30%;
-        }
-        @include breakpoint($tablet) {
-            width: 40%;
-        }
-        
-        @include breakpoint($smallTablet) {
-            width: 66%;
-        }
+}
+
+.navigate-panel__left {
+    width: 20%;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint($smallDesk) {
+        width: 30%;
     }
-    &__item {
-        font-size: 2rem;
-        font-weight: bold;
-        &:not(:last-child) {
-            margin-right: 1.5rem;
-            @include breakpoint($mobile) {
-                margin-right: 0.8rem;
-            }
-        }
+
+    @include breakpoint($tablet) {
+        width: 40%;
+    }
+
+    @include breakpoint($smallTablet) {
+        width: 66%;
+    }
+}
+
+.navigate-panel__item {
+    font-size: 2rem;
+    font-weight: bold;
+
+    &:not(:last-child) {
+        margin-right: 1.5rem;
+
         @include breakpoint($mobile) {
-            font-size: 1.4rem;
+            margin-right: 0.8rem;
         }
     }
-    &__line {
-        width: 80%;
-        @include breakpoint($smallDesk) {
-            width: 70%;
-        }
-        @include breakpoint($tablet) {
-            width: 60%;
-        }
-       
-        @include breakpoint($smallTablet) {
-            width: 34%;
-        }
+
+    @include breakpoint($mobile) {
+        font-size: 1.4rem;
     }
-    &__itemSvg {
-        width: 1rem;
-        height: 1.8rem;
-        @include breakpoint($mobile) {
-            width: 0.5rem;
-            height: 1rem;
-        }
+}
+
+.navigate-panel__line {
+    width: 80%;
+
+    @include breakpoint($smallDesk) {
+        width: 70%;
+    }
+
+    @include breakpoint($tablet) {
+        width: 60%;
+    }
+
+    @include breakpoint($smallTablet) {
+        width: 34%;
+    }
+}
+
+.navigate-panel__itemSvg {
+    width: 1rem;
+    height: 1.8rem;
+
+    @include breakpoint($mobile) {
+        width: 0.5rem;
+        height: 1rem;
     }
 }

@@ -168,6 +168,9 @@ input::-webkit-inner-spin-button {
 
 .container {
     padding: 0 3.125%;
+    @include breakpoint($mobile) {
+        padding: 0 4.1%;
+    }
 }
 
 .title {

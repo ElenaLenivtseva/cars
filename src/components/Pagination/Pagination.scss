@@ -5,22 +5,22 @@
     @include breakpoint($mobile) {
         display: none;
     }
-    &__wrap {
-        display: flex;
-        margin: 0 auto;
-        padding-bottom: 10rem;
-    }
+}
+.pagination__wrap {
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 10rem;
+}
 
-    &__page {
-        font-size: 1.6rem;
-        cursor: pointer;
+.pagination__page {
+    font-size: 1.6rem;
+    cursor: pointer;
 
-        &:not(:last-child) {
-            margin-right: 4.4rem;
-        }
+    &:not(:last-child) {
+        margin-right: 4.4rem;
     }
+}
 
-    &__page_active {
-        color: #E1242D;
-    }
+.pagination__page_active {
+    color: #E1242D;
 }

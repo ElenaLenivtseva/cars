@@ -4,7 +4,7 @@ import './HeaderIcon.scss'
 
 const HeaderIcon = ({children, link}) => {
   return (
-    <div className='headerIcon headerIcon__wrap'>
+    <div className='header-icon header-icon__wrap'>
             <Link to={link}>
               {children}
             </Link>

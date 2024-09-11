@@ -2,62 +2,61 @@
 
 .header {
     background: linear-gradient(to bottom, rgba(45, 47, 52, 0) 0%, rgba(45, 47, 52, 0.8) 100%);
+}
 
-    &_tablet {
-        display: none;
+.header_tablet {
+    display: none;
 
-        @include breakpoint($smallTablet) {
-            display: block;
-        }
-    }
-    &_desktop {
+    @include breakpoint($smallTablet) {
         display: block;
+    }
+}
 
-        @include breakpoint($smallTablet) {
-            display: none;
-        }
+.header_desktop {
+    display: block;
+
+    @include breakpoint($smallTablet) {
+        display: none;
+    }
+}
+
+.header__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    column-gap: 4rem;
+    row-gap: 2rem;
+    padding: 2.5rem 0;
+
+    @include breakpoint($smallDesk) {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
-    &__wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        align-items: center;
-        column-gap: 4rem;
-        row-gap: 2rem;
-        padding: 2.5rem 0;
-
-        @include breakpoint($smallDesk) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-        @include breakpoint($tablet) {
-            padding: 2.2rem 0 1.7rem 0;
-        }
+    @include breakpoint($tablet) {
+        padding: 2.2rem 0 1.7rem 0;
     }
+}
 
-    &__logo {
-        font-size: 4.8rem;
-        font-weight: bold;
-        color: $main;
+.header__logo {
+    font-size: 4.8rem;
+    font-weight: bold;
+    color: $main;
 
-        @include breakpoint($tablet) {
-            font-size: 3.2rem;
-        }
+    @include breakpoint($tablet) {
+        font-size: 3.2rem;
     }
+}
 
-    &__item {
-        &_void {
-            @include breakpoint($smallDesk) {
-                display: none;
-            }
-        }
+.header__item_void {
+    @include breakpoint($smallDesk) {
+        display: none;
     }
+}
 
-    &__itemIcons {
-        display: flex;
+.header__item-icons {
+    display: flex;
 
-        @include breakpoint($smallDesk) {
-            justify-content: flex-end;
-        }
+    @include breakpoint($smallDesk) {
+        justify-content: flex-end;
     }
-
 }

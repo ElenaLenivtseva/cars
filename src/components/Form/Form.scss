@@ -9,6 +9,7 @@
         "password button";
     column-gap: 2.6rem;
     row-gap: 2rem;
+
     @include breakpoint($smallTablet) {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -18,93 +19,95 @@
             "button";
         row-gap: 1rem;
     }
+}
 
-    &__container {
-        padding: 4.8rem 2.7rem 2.7rem 2.7rem;
-        border: 1px solid $main;
-        border-radius: 2rem;
-        @include breakpoint($smallTablet) {
-            padding: 2.8rem 1.7rem 1.7rem 1.7rem;
-        }
+.form__container {
+    padding: 4.8rem 2.7rem 2.7rem 2.7rem;
+    border: 1px solid $main;
+    border-radius: 2rem;
+
+    @include breakpoint($smallTablet) {
+        padding: 2.8rem 1.7rem 1.7rem 1.7rem;
+    }
+}
+
+.form__title {
+    font-size: 2.4rem;
+    margin-bottom: 3.2rem;
+
+    @include breakpoint($smallTablet) {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.form__button-wrap {
+    grid-area: button;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__button {
+    color: black;
+    background: $main;
+    width: 100%;
+    height: 6rem;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 10rem;
+    margin-top: 7%;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
     }
 
-    &__title {
-        font-size: 2.4rem;
-        margin-bottom: 3.2rem;
-        @include breakpoint($smallTablet) {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-        }
+    &:disabled {
+        background: $error;
     }
 
-    &__buttonWrap {
-        grid-area: button;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    @include breakpoint($smallTablet) {
+        margin-top: 0;
     }
+}
 
-    &__button {
-        color: black;
-        background: $main;
-        width: 100%;
-        height: 6rem;
-        font-weight: bold;
-        font-size: 2rem;
-        border-radius: 10rem;
-        margin-top: 7%;
-        outline: none;
+.form__login {
+    grid-area: login;
+}
 
-        &:hover {
-            cursor: pointer;
-        }
+.form__email {
+    grid-area: email;
+}
 
-        &:disabled {
-            background: $error;
-        }
-        @include breakpoint($smallTablet) {
-            margin-top: 0;
-        }
-    }
+.form__password {
+    grid-area: password;
+}
 
-    &__login {
-        grid-area: login;
-    }
+.form__label {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    &__email {
-        grid-area: email;
-    }
+.form__input {
+    border-radius: 10rem;
+    margin: 1rem 0;
+    padding: 1.7rem 3rem;
+    background: none;
+    border: 1px solid $main;
+    font-size: 1.6rem;
+    color: $main;
+}
 
-    &__password {
-        grid-area: password;
-    }
+.form__input_error {
+    border: 1px solid $error;
+}
 
-    &__label {
-        font-size: 2rem;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-    }
-
-    &__input {
-        border-radius: 10rem;
-        margin: 1rem 0;
-        padding: 1.7rem 3rem;
-        background: none;
-        border: 1px solid $main;
-        font-size: 1.6rem;
-        color: $main;
-
-        &_error {
-            border: 1px solid $error;
-        }
-    }
-
-    &__error {
-        margin-top: 1rem;
-        color: $error;
-        font-size: 1.6rem;
-    }
+.form__error {
+    margin-top: 1rem;
+    color: $error;
+    font-size: 1.6rem;
 }

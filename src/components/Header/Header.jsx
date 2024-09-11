@@ -19,7 +19,7 @@ const Header = () => {
             <Search />
           </div>
           <div className="header__item header__item_void"></div>
-          <div className="header__item header__itemIcons">
+          <div className="header__item header__item-icons">
             <HeaderIcon link="/register">{account}</HeaderIcon>
             <HeaderIcon link="/">{charge}</HeaderIcon>
             <HeaderIcon link="/">{law}</HeaderIcon>
@@ -39,7 +39,7 @@ const Header = () => {
             <Search />
           </div>
           <div className="header__item header__item_void"></div>
-          <div className="header__item header__itemIcons">
+          <div className="header__item header__item-icons">
             <HeaderIcon link="/">{search}</HeaderIcon>
             <HeaderIcon link="/">{law}</HeaderIcon>
             <HeaderIcon link="/">{menu}</HeaderIcon>
