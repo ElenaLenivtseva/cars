@@ -27,7 +27,12 @@ const Form = () => {
     email: true,
     password: true,
   });
-
+  // const [errors, setErrors] = useState({
+  //   login: "",
+  //   email: "",
+  //   password: "",
+  // });
+  
   function checkValidate(name, value) {
     
     switch (name) {
@@ -150,6 +155,8 @@ const Form = () => {
     dispatch(sendForm(form))
     setForm(initialForm)
   }
+  
+  
   return (
     <div className="form__container">
       <p className="form__title">

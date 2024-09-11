@@ -7,7 +7,7 @@ const NavigatePanel = () => {
       <div className="navigatePanel__left">
       <p className="navigatePanel__item">Main Page</p>
       <svg
-        className="navigatePanel__item"
+        className="navigatePanel__item navigatePanel__itemSvg"
         width="10"
         height="18"
         viewBox="0 0 10 18"
@@ -22,7 +22,7 @@ const NavigatePanel = () => {
 
       <p className="navigatePanel__item">Новости и анонсы</p>
       </div>
-      <div className="navigatePanel__item navigatePanel__line"></div>
+      <div className="line navigatePanel__item navigatePanel__line"></div>
     </div>
   );
 };

@@ -2,7 +2,9 @@
 
 .pagination {
     display: flex;
-
+    @include breakpoint($mobile) {
+        display: none;
+    }
     &__wrap {
         display: flex;
         margin: 0 auto;

@@ -9,6 +9,7 @@ import img6 from "../../images/6.png";
 import img7 from "../../images/7.png";
 import img8 from "../../images/8.png";
 import NewsCard from "../NewsCard/NewsCard";
+import { arrowBack } from "../../icons/icons";
 
 const cars = [
   {
@@ -87,7 +88,18 @@ const cars = [
 const News = () => {
   return (
     <div className="news">
-      <h2 className="title news__title">Новости и анонсы</h2>
+      <div className="news__header news__header_desktop">
+        <h2 className="title news__title">Новости и анонсы</h2>
+      </div>
+      <div className="news__header news__header_mobile">
+        <div className="news__headerTop">
+          <div className="news__headerArrow">{arrowBack}</div>
+          <h2 className="title news__title">Новости и анонсы</h2>
+        </div>
+
+        <div className="line"></div>
+      </div>
+
       <div className="news__wrap">
         {cars.map((item) => {
           return <NewsCard key={item.id} item={item} />;
