@@ -3,6 +3,9 @@
 .register {
     &__title {
         padding: 5rem 0 4.8rem 0;
+        @include breakpoint($smallTablet) {
+            padding: 3.5rem 0 3rem 0;
+        }
     }
     &__wrap {
         display: flex;
