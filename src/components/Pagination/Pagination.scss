@@ -8,6 +8,7 @@
 }
 .pagination__wrap {
     display: flex;
+    gap: 4.4rem;
     margin: 0 auto;
     padding-bottom: 10rem;
 }
@@ -15,10 +16,6 @@
 .pagination__page {
     font-size: 1.6rem;
     cursor: pointer;
-
-    &:not(:last-child) {
-        margin-right: 4.4rem;
-    }
 }
 
 .pagination__page_active {

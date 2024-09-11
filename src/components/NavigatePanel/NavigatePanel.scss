@@ -14,6 +14,11 @@
     width: 20%;
     display: flex;
     align-items: center;
+    gap: 1.5rem;
+
+    @include breakpoint($mobile) {
+        margin-right: 0.8rem;
+    }
 
     @include breakpoint($smallDesk) {
         width: 30%;
@@ -31,14 +36,6 @@
 .navigate-panel__item {
     font-size: 2rem;
     font-weight: bold;
-
-    &:not(:last-child) {
-        margin-right: 1.5rem;
-
-        @include breakpoint($mobile) {
-            margin-right: 0.8rem;
-        }
-    }
 
     @include breakpoint($mobile) {
         font-size: 1.4rem;

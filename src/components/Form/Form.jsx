@@ -15,6 +15,10 @@ function isEmailValid(value) {
   return EMAIL_REGEXP.test(value);
 }
 
+const loginErrorText = "Длина логина должна быть не менее 5 символов";
+const emailErrorText = "Проверьте правильность формата введенного email-адреса";
+const passwordErrorText = "Длина пароля должна быть не менее 8 символов";
+
 const Form = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState(initialForm);
@@ -27,12 +31,9 @@ const Form = () => {
     email: true,
     password: true,
   });
-  // const [errors, setErrors] = useState({
-  //   login: "",
-  //   email: "",
-  //   password: "",
-  // });
-
+  
+  
+  
   function checkValidate(name, value) {
     switch (name) {
       case "login":
@@ -44,7 +45,7 @@ const Form = () => {
             return updatedErrors;
           });
         } else if (value.length > 2 && value.length < 5) {
-          setLoginError("Длина логина должна быть не менее 5 символов");
+          setLoginError(loginErrorText);
 
           setAllError((prevAllError) => {
             const updatedErrors = { ...prevAllError };
@@ -82,7 +83,7 @@ const Form = () => {
           });
           return true;
         } else {
-          setPasswordError("Длина пароля должна быть не менее 8 символов");
+          setPasswordError(passwordErrorText);
           setAllError((prevAllError) => {
             const updatedErrors = { ...prevAllError };
             updatedErrors.password = true;
@@ -110,9 +111,7 @@ const Form = () => {
           });
           return true;
         } else {
-          setEmailError(
-            "Проверьте правильность формата введенного email-адреса"
-          );
+          setEmailError(emailErrorText);
           setAllError((prevAllError) => {
             const updatedErrors = { ...prevAllError };
             updatedErrors.email = true;

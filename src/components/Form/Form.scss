@@ -7,8 +7,7 @@
         "login ."
         "email ."
         "password button";
-    column-gap: 2.6rem;
-    row-gap: 2rem;
+    gap: 2rem 2.6rem;
 
     @include breakpoint($smallTablet) {
         grid-template-columns: 1fr;
@@ -17,7 +16,7 @@
             "email"
             "password"
             "button";
-        row-gap: 1rem;
+        gap: 1rem;
     }
 }
 

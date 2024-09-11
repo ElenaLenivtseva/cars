@@ -3,8 +3,7 @@
 .news__wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 4rem;
-    row-gap: 2rem;
+    gap: 2rem 4rem;
     padding-bottom: 8rem;
 
     @include breakpoint($smallDesk) {
@@ -20,7 +19,7 @@
     }
 
     @include breakpoint($mobile) {
-        row-gap: 1.5rem;
+        gap: 1.5rem;
     }
 }
 
@@ -46,6 +45,7 @@
 .news__header-top {
     display: flex;
     align-items: center;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -57,13 +57,10 @@
     height: 4rem;
     border-radius: 100%;
     border: 1px solid $main;
-    margin-right: 2rem;
-
+    
     &:hover {
         cursor: pointer;
     }
-
-
 }
 
 .news__header-arrow-svg {
