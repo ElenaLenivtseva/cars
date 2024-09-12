@@ -2,7 +2,13 @@ import React from "react";
 import "./NavigatePanel.scss";
 import ArrowNext from "../icons/ArrowNext";
 
-const NavigatePanel = ({page, title}) => {
+
+interface NavigatePanelProps {
+  page:  string;
+  title: string;
+}
+
+const NavigatePanel: React.FC<NavigatePanelProps> = ({page, title}) => {
   return (
     <div className="navigate-panel">
       <div className="navigate-panel__left">
@@ -14,5 +20,6 @@ const NavigatePanel = ({page, title}) => {
     </div>
   );
 };
+
 
 export default NavigatePanel;

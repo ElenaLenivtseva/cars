@@ -1,6 +1,15 @@
 import React from "react";
 
-const Input = ({error, name, type, placeholder, value, handleChange}) => {
+interface InputProps {
+  error: string;
+  name: string;
+  type: string;
+  placeholder: string;
+  value: string;
+  handleChange: ()=>void;
+}
+
+const Input: React.FC<InputProps> = ({error, name, type, placeholder, value, handleChange}) => {
   return (
     <input
       className={`form__input ${error && "form__input_error"}`}
@@ -13,4 +22,6 @@ const Input = ({error, name, type, placeholder, value, handleChange}) => {
   );
 };
 
+
 export default Input;
+
