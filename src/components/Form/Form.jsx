@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { sendForm } from "../../features/registerSlice";
 import "./Form.scss";
+import Input from "../Input/Input";
+import Label from "../Label/Label";
 
 const initialForm = {
   login: "",
@@ -146,55 +148,48 @@ const Form = () => {
         Для того, чтобы просматривать профиль, необходимо зарегистрироваться!
       </p>
       <form className="form" onSubmit={handleSumbit}>
-        <div className="form__label-wrap form__login">
-          <label className="form__label">
-            Логин
-            <input
-              className={`form__input ${
-                errorsText.loginError && "form__input_error"
-              }`}
-              name="login"
-              type="text"
-              placeholder="Придумайте логин"
-              value={form.login}
-              onChange={handleChange}
-            />
-          </label>
-          <p className="form__error">{errorsText.loginError}</p>
-        </div>
-        <div className="form__label-wrap form__email">
-          <label className="form__label">
-            Email
-            <input
-              className={`form__input ${
-                errorsText.emailError && "form__input_error"
-              }`}
-              name="email"
-              type="email"
-              placeholder="Введите адрес электронной почты"
-              value={form.email}
-              onChange={handleChange}
-            />
-          </label>
-
-          <p className="form__error">{errorsText.emailError}</p>
-        </div>
-        <div className="form__label-wrap form__password">
-          <label className="form__label">
-            Пароль
-            <input
-              className={`form__input ${
-                errorsText.passwordError && "form__input_error"
-              }`}
-              name="password"
-              type="password"
-              placeholder="Придумайте пароль"
-              value={form.password}
-              onChange={handleChange}
-            />
-          </label>
-          <p className="form__error">{errorsText.passwordError}</p>
-        </div>
+        <Label
+          title="Логин"
+          error={errorsText.loginError}
+          className="form__login"
+        >
+          <Input
+            name="login"
+            type="text"
+            error={errorsText.loginError}
+            placeholder="Придумайте логин"
+            value={form.login}
+            handleChange={handleChange}
+          />
+        </Label>
+        <Label
+          title="Email"
+          error={errorsText.emailError}
+          className="form__email"
+        >
+          <Input
+            error={errorsText.emailError}
+            name="email"
+            type="email"
+            placeholder="Введите адрес электронной почты"
+            value={form.email}
+            handleChange={handleChange}
+          />
+        </Label>
+        <Label
+          title="Пароль"
+          error={errorsText.passwordError}
+          className="form__password"
+        >
+          <Input
+            error={errorsText.passwordError}
+            name="password"
+            type="password"
+            placeholder="Придумайте пароль"
+            value={form.password}
+            handleChange={handleChange}
+          />
+        </Label>
         <div className="form__button-wrap">
           <button className="form__button" disabled={disabled}>
             Зарегистрироваться
