@@ -57,6 +57,7 @@ const Form = () => {
   // Нет ошибки под полем (но кнопка заблокирована, т.к. это первоначальный ввод, поля не могут быть валидны)
 
   function validateForm(name, value) {
+
     // вспомогательная функция, недоступная извне - может использоваться только здесь
     function manageButton(key, value) {
       setAllErrors((prevAllErrors) => {
@@ -77,49 +78,47 @@ const Form = () => {
       return !anyErrorExist;
     }
 
-    // первоначальный ввод - работаем только с кнопкой. Не отображаем ошибку под полем
+    let login = "";
+    let email = "";
+    let password = "";
+    let manageButtonVal = false;
+
+    // первоначальный ввод
     if (value.length < 2) {
-      manageButton(name, true);
+      manageButtonVal = true;
+      manageButton(name, manageButtonVal);
       return;
     }
-    // непервоначальный ввод - работаем с кнопкой и ошибкой под полями
+
     switch (name) {
       case "login":
-        // поле валидно
-        if (value.length > 4) {
-          // убрать ошибку под полем
-          setErrorsText({ ...errorsText, loginError: "" });
-          // на основе изменений поменять состояние кнопки отправки
-          manageButton(name, false);
-          // поле невалидно
-        } else {
-          // показать ошибку под полем
-          setErrorsText({ ...errorsText, loginError: loginErrorText });
-          // на основе изменений поменять состояние кнопки отправки
-          manageButton(name, true);
+        if (value.length < 5) {
+          login = loginErrorText;
+          manageButtonVal = true;
         }
         break;
       case "password":
-        if (value.length > 7) {
-          setErrorsText({ ...errorsText, passwordError: "" });
-          manageButton(name, false);
-        } else {
-          setErrorsText({ ...errorsText, passwordError: passwordErrorText });
-          manageButton(name, true);
+        if (value.length < 8) {
+          password = passwordErrorText;
+          manageButtonVal = true;
         }
         break;
       case "email":
-        if (isEmailValid(value)) {
-          setErrorsText({ ...errorsText, emailError: "" });
-          manageButton(name, false);
-        } else {
-          setErrorsText({ ...errorsText, emailError: emailErrorText });
-          manageButton(name, true);
+        if (!isEmailValid(value)) {
+          email = emailErrorText;
+          manageButtonVal = true;
         }
         break;
       default:
         alert("Нет таких значений");
     }
+    setErrorsText({
+      ...errorsText,
+      loginError: login,
+      emailError: email,
+      passwordError: password,
+    });
+    manageButton(name, manageButtonVal);
   }
 
   const handleChange = (event) => {
