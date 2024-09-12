@@ -1,6 +1,7 @@
 import React from "react";
+import { svgProps } from "./propsForSvg";
 
-const MenuSvg = ({ className }) => {
+const MenuSvg: React.FC<svgProps> = ({ className }) => {
   return (
     <svg
       className={className}

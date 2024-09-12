@@ -8,7 +8,15 @@ import img6 from "../images/6.png";
 import img7 from "../images/7.png";
 import img8 from "../images/8.png";
 
-const cars = [
+export interface Car {
+  id: string;
+    title: string;
+    descr: string;
+    author: string;
+    date: string;
+    img?: any;
+}
+const cars: Car[] = [
   {
     id: "1",
     title: "Volkswagen ID.4: первый серийный кроссовер марки на батарейках",

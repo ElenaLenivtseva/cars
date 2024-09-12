@@ -1,6 +1,7 @@
 import React from "react";
+import { svgProps } from "./propsForSvg";
 
-const SearchSvg = ({ className }) => {
+const SearchSvg: React.FC<svgProps> = ({ className }) => {
   return (
     <svg
       className={className}

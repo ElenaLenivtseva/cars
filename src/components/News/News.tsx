@@ -3,9 +3,11 @@ import "./News.scss";
 import NewsCard from "../NewsCard/NewsCard";
 import { useSelector } from "react-redux";
 import ArrowBack from "../icons/ArrowBack";
+import {RootState} from '../../features/store'
+import { Car } from "../../features/carsSlice";
 
 const News = () => {
-  const cars = useSelector((store) => store.cars);
+  const cars = useSelector((state: RootState) => state.cars as Car[]);
   
   return (
     <div className="news">

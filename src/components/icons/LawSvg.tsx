@@ -1,6 +1,7 @@
 import React from "react";
+import { svgProps } from "./propsForSvg";
 
-const LawSvg = ({ className }) => {
+const LawSvg: React.FC<svgProps> = ({ className }) => {
   return (
     <svg
       className={className}

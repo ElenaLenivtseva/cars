@@ -5,10 +5,11 @@ import "./Form.scss";
 import Input from "../Input/Input";
 import Label from "../Label/Label";
 import useValidateForm from "./hookValidate";
+import { AppDispatch } from "../../features/store";
 
 
 const Form = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     form,
     disabled,

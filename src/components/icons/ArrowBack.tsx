@@ -1,6 +1,7 @@
 import React from "react";
+import { svgProps } from "./propsForSvg";
 
-const ArrowBack = ({ className }) => {
+const ArrowBack: React.FC<svgProps> = ({ className }) => {
   return (
     <svg
       className={className}

@@ -1,7 +1,12 @@
 import React from "react";
 import './NewsCard.scss'
+import { Car } from "../../features/carsSlice";
 
-const NewsCard = ({item}) => {
+interface NewsCardProps {
+  item: Car
+}
+
+const NewsCard: React.FC<NewsCardProps> = ({item}) => {
   return (
     <div className="news-card">
       <div className="news-card__top">
