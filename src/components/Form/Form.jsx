@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Form.scss";
 import { useDispatch } from "react-redux";
 import { sendForm } from "../../features/registerSlice";
+import "./Form.scss";
 
 const initialForm = {
   login: "",
@@ -9,75 +9,109 @@ const initialForm = {
   password: "",
 };
 
+const initialErrors = {
+  login: true,
+  email: true,
+  password: true,
+};
+const initialErrorsText = {
+  loginError: "",
+  emailError: "",
+  errorsText: "",
+};
+
+const loginErrorText = "Длина логина должна быть не менее 5 символов";
+const emailErrorText = "Проверьте правильность формата введенного email-адреса";
+const passwordErrorText = "Длина пароля должна быть не менее 8 символов";
+
 function isEmailValid(value) {
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
   return EMAIL_REGEXP.test(value);
 }
 
-const loginErrorText = "Длина логина должна быть не менее 5 символов";
-const emailErrorText = "Проверьте правильность формата введенного email-адреса";
-const passwordErrorText = "Длина пароля должна быть не менее 8 символов";
-
 const Form = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState(initialForm);
   const [disabled, setDisabled] = useState(true);
-  const [errorsText, setErrorsText] = useState({
-    loginError: "",
-    emailError: "",
-    errorsText: "",
-  });
-  const [allError, setAllError] = useState({
-    login: true,
-    email: true,
-    password: true,
-  });
 
-  
+  // Два состояния, потому что они несинхронны. Текста ошибки может не быть, но сама по себе ошибка может существовать - первоначальный невалидируемый ввод
+  const [errorsText, setErrorsText] = useState(initialErrorsText);
+  // изначально все ошибки в состоянии true, т.к. поля пустые
+  const [allErrors, setAllErrors] = useState(initialErrors);
 
-  // есть три случая: когда значение валидно, когда оно не валидно, и когда мы не проверяем его валидность (первоначальный ввод). На это есть три сценария: нет ошибки под полем (кнопка может быть как разблокированной, так и заблокированной - поля долдны быть все валидными, чтобы кнопка была доступна), есть ошибка под полем (кнопка отправки заблокирована), нет ошибки под полем (но кнопка заблокирована, т.к. это первоначальный ввод, поля не могут быть валидны).
+  // Есть три случая:
+  // 1) значение валидно
+  // 2) значение невалидно
+  // 3) значение не проверяется на валидность (первоначальный ввод)
 
-  function checkValidate(name, value) {
-    function help(key, value) {
-      setAllError((prevAllError) => {
-        const updatedErrors = { ...prevAllError };
+  // На них есть три сценария:
+  // 1) Ошибка под полем +; Кнопка +-.
+  // Нет ошибки под полем (кнопка может быть как разблокированной, так и заблокированной - поля должны быть все валидными, чтобы кнопка была доступна)
+  // 2) Ошибка под полем +; Кнопка-;
+  // Есть ошибка под полем (кнопка отправки заблокирована, даже если только одно поле невалидно)
+  // 3) Ошибка под полем -; Кнопка -;
+  // Нет ошибки под полем (но кнопка заблокирована, т.к. это первоначальный ввод, поля не могут быть валидны)
+
+  function validateForm(name, value) {
+    // вспомогательная функция, недоступная извне - может использоваться только здесь
+    function manageButton(key, value) {
+      setAllErrors((prevAllErrors) => {
+        const updatedErrors = { ...prevAllErrors };
         updatedErrors[key] = value;
-        everythingIsValid(updatedErrors);
+        const everythingIsValid = checkEverythingIsValid(updatedErrors);
+        // если все валидно, разблокируем кнопку
+        setDisabled(!everythingIsValid);
         return updatedErrors;
       });
     }
+
+    // вспомогательная функция, недоступная извне - может использоваться только здесь
+    function checkEverythingIsValid(updated) {
+      const { login, email, password } = updated;
+      const anyErrorExist = login || email || password;
+      // если есть ошибка, значит не все валидно, возвращаем false
+      return !anyErrorExist;
+    }
+
+    // первоначальный ввод - работаем только с кнопкой. Не отображаем ошибку под полем
+    if (value.length < 2) {
+      manageButton(name, true);
+      return;
+    }
+    // непервоначальный ввод - работаем с кнопкой и ошибкой под полями
     switch (name) {
       case "login":
-        if (value.length < 2) {
-          help("login", true);
-        } else if (value.length > 2 && value.length < 5) {
-          setErrorsText({ ...errorsText, loginError: loginErrorText });
-        } else {
+        // поле валидно
+        if (value.length > 4) {
+          // убрать ошибку под полем
           setErrorsText({ ...errorsText, loginError: "" });
-          help("login", false);
+          // на основе изменений поменять состояние кнопки отправки
+          manageButton(name, false);
+          // поле невалидно
+        } else {
+          // показать ошибку под полем
+          setErrorsText({ ...errorsText, loginError: loginErrorText });
+          // на основе изменений поменять состояние кнопки отправки
+          manageButton(name, true);
         }
         break;
       case "password":
-        if (value.length < 2) {
-          help("password", true);
-        } else if (value.length > 7) {
+        if (value.length > 7) {
           setErrorsText({ ...errorsText, passwordError: "" });
-          help("password", false);
+          manageButton(name, false);
         } else {
           setErrorsText({ ...errorsText, passwordError: passwordErrorText });
-          help("password", true);
+          manageButton(name, true);
         }
         break;
       case "email":
-        if (value.length < 2) {
-          help("email", true);
-        } else if (isEmailValid(value)) {
+        if (isEmailValid(value)) {
           setErrorsText({ ...errorsText, emailError: "" });
-          help("email", false);
+          manageButton(name, false);
         } else {
           setErrorsText({ ...errorsText, emailError: emailErrorText });
-          help("email", true);
+          manageButton(name, true);
         }
         break;
       default:
@@ -92,19 +126,17 @@ const Form = () => {
       [name]: value,
     }));
 
-    checkValidate(name, value);
+    validateForm(name, value);
   };
-
-  function everythingIsValid(updated) {
-    const { login, email, password } = updated;
-    const anyErrorExist = login || email || password;
-    setDisabled(anyErrorExist);
-  }
 
   function handleSumbit(e) {
     e.preventDefault();
     dispatch(sendForm(form));
+    // возвращаем форму в нчальное состояние
     setForm(initialForm);
+    setAllErrors(initialErrors);
+    setErrorsText(initialErrorsText);
+    setDisabled(true);
   }
 
   return (
