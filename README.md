@@ -24,6 +24,10 @@
 браузером через alert</li>
 </ul>
 
+
+<p>Склонируйте репозиторий, установите зависимости и запустите проект слудующей командой:</br>
+<b>npm start</b>
+</p>
 <p><i>Стек: React, React-Router, Redux Toolkit, TypeScript, SASS, БЭМ.</i></p>
 
 
