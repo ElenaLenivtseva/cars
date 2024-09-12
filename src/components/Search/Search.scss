@@ -4,7 +4,7 @@
     border: 1px solid white;
     border-radius: 100px;
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         display: none;
     }
 }
@@ -14,7 +14,7 @@
     grid-template-columns: 2fr 8fr;
     padding: 1.5rem;
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         padding: 1rem;
     }
 }

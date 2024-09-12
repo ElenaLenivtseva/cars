@@ -5,7 +5,7 @@
     align-items: center;
     margin: 3rem 0 4rem 0;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         margin: 1.5rem 0 2rem 0;
     }
 }
@@ -16,19 +16,19 @@
     align-items: center;
     gap: 1.5rem;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         margin-right: 0.8rem;
     }
 
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         width: 30%;
     }
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         width: 40%;
     }
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         width: 66%;
     }
 }
@@ -37,7 +37,7 @@
     font-size: 2rem;
     font-weight: bold;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         font-size: 1.4rem;
     }
 }
@@ -45,15 +45,15 @@
 .navigate-panel__line {
     width: 80%;
 
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         width: 70%;
     }
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         width: 60%;
     }
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         width: 34%;
     }
 }
@@ -62,7 +62,7 @@
     width: 1rem;
     height: 1.8rem;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         width: 0.5rem;
         height: 1rem;
     }

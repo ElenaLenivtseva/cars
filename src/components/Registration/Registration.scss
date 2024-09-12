@@ -3,7 +3,7 @@
 .register__title {
     padding: 5rem 0 4.8rem 0;
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         padding: 3.5rem 0 3rem 0;
     }
 }

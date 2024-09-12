@@ -7,7 +7,7 @@
 .header_tablet {
     display: none;
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         display: block;
     }
 }
@@ -15,7 +15,7 @@
 .header_desktop {
     display: block;
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         display: none;
     }
 }
@@ -27,11 +27,11 @@
     gap: 2rem 4rem;
     padding: 2.5rem 0;
 
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         padding: 2.2rem 0 1.7rem 0;
     }
 }
@@ -41,13 +41,13 @@
     font-weight: bold;
     color: $main;
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         font-size: 3.2rem;
     }
 }
 
 .header__item_void {
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         display: none;
     }
 }
@@ -55,7 +55,7 @@
 .header__item-icons {
     display: flex;
 
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         justify-content: flex-end;
     }
 }

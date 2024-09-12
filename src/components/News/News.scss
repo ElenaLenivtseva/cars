@@ -6,19 +6,19 @@
     gap: 2rem 4rem;
     padding-bottom: 8rem;
 
-    @include breakpoint($smallDesk) {
+    @include smallDesk() {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    @include breakpoint($tablet) {
+    @include tablet() {
         grid-template-columns: 1fr 1fr;
     }
 
-    @include breakpoint($smallTablet) {
+    @include smallTablet() {
         grid-template-columns: 1fr;
     }
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         gap: 1.5rem;
     }
 }
@@ -27,7 +27,7 @@
     display: block;
     margin-bottom: 4rem;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         display: none;
     }
 }
@@ -35,7 +35,7 @@
 .news__header_mobile {
     display: none;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         display: block;
         margin-bottom: 2rem;
     }

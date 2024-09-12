@@ -111,10 +111,8 @@ section {
 
 body {
     line-height: 1;
-    font-family: 'Inter', sans-serif;
     background: $bg;
     color: $main;
-    // font-size: 10px;
 }
 
 ol,
@@ -169,7 +167,7 @@ input::-webkit-inner-spin-button {
 
 .container {
     padding: 0 3.125%;
-    @include breakpoint($mobile) {
+    @include mobile() {
         padding: 0 4.1%;
     }
 }
@@ -178,7 +176,7 @@ input::-webkit-inner-spin-button {
     font-size: 4rem;
     font-weight: bold;
 
-    @include breakpoint($mobile) {
+    @include mobile() {
         font-size: 1.8rem;
     }
 }
