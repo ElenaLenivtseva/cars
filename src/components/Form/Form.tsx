@@ -18,7 +18,7 @@ const Form = () => {
   } = useValidateForm()
   
 
-  function handleSumbit(e) {
+  function handleSumbit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(sendForm(form));
     clean()
