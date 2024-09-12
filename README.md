@@ -2,22 +2,10 @@
 
 <h3>Условия</h3>
 <ul>
-  
 Задача: сверстать страницу с
 новостями, соответствующую десктопному
 и мобильному шаблонам (1920 и 360 по ширине).
-<ul>
-Требования:
-<li>React</li>
-<li>HTML (flexbox/grid - на свое усмотрение)</li>
-<li>Sass/SCSS</li>
-<li>БЭМ</li>
-<li>React Router (для задачи 2)</li>
-
 </ul>
-</ul>
-
-
 
 <ul>
 Задача: реализовать форму регистрации, используя
@@ -36,8 +24,7 @@
 браузером через alert</li>
 </ul>
 
-
-<p><i>Стек: React, Redux Toolkit, TypeScript, SASS, БЭМ.</i></p>
+<p><i>Стек: React, React-Router, Redux Toolkit, TypeScript, SASS, БЭМ.</i></p>
 
 
 
