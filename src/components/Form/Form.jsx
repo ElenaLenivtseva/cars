@@ -14,6 +14,7 @@ const initialErrors = {
   email: true,
   password: true,
 };
+
 const initialErrorsText = {
   loginError: "",
   emailError: "",

@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import Search from "../Search/Search";
 import HeaderIcon from "../HeaderIcon/HeaderIcon";
-import { law, search, charge, account, menu } from "../../icons/icons";
+import AccountSvg from "../icons/AccountSvg";
+import ChargeSvg from "../icons/ChargeSvg";
+import LawSvg from "../icons/LawSvg";
+import MenuSvg from "../icons/MenuSvg";
+import SearchSvg from "../icons/SearchSvg";
 
 const Header = () => {
   return (
@@ -20,10 +24,18 @@ const Header = () => {
           </div>
           <div className="header__item header__item_void"></div>
           <div className="header__item header__item-icons">
-            <HeaderIcon link="/register">{account}</HeaderIcon>
-            <HeaderIcon link="/">{charge}</HeaderIcon>
-            <HeaderIcon link="/">{law}</HeaderIcon>
-            <HeaderIcon link="/">{menu}</HeaderIcon>
+            <HeaderIcon link="/register">
+              <AccountSvg className="header-icon__svg" />
+            </HeaderIcon>
+            <HeaderIcon link="/">
+              <ChargeSvg className="header-icon__svg" />
+            </HeaderIcon>
+            <HeaderIcon link="/">
+              <LawSvg className="header-icon__svg" />
+            </HeaderIcon>
+            <HeaderIcon link="/">
+              <MenuSvg className="header-icon__svg" />
+            </HeaderIcon>
           </div>
         </div>
         <div className="line"></div>
@@ -40,9 +52,9 @@ const Header = () => {
           </div>
           <div className="header__item header__item_void"></div>
           <div className="header__item header__item-icons">
-            <HeaderIcon link="/">{search}</HeaderIcon>
-            <HeaderIcon link="/">{law}</HeaderIcon>
-            <HeaderIcon link="/">{menu}</HeaderIcon>
+            <HeaderIcon link="/"><SearchSvg className="header-icon__svg" /></HeaderIcon>
+            <HeaderIcon link="/"><LawSvg className="header-icon__svg" /></HeaderIcon>
+            <HeaderIcon link="/"><MenuSvg className="header-icon__svg" /></HeaderIcon>
           </div>
         </div>
         <div className="line"></div>
