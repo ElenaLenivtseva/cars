@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { sendForm } from "../../features/registerSlice";
 import "./Form.scss";
-import Input from "../Input/Input";
 import Label from "../Label/Label";
 import useValidateForm from "./hookValidate";
 import { AppDispatch } from "../../features/store";
@@ -35,44 +34,33 @@ const Form = () => {
           title="Логин"
           error={errorsText.loginError}
           className="form__login"
-        >
-          <Input
-            name="login"
-            type="text"
-            error={errorsText.loginError}
-            placeholder="Придумайте логин"
-            value={form.login}
-            handleChange={handleChange}
-          />
-        </Label>
+          name="login"
+          type="text"
+          placeholder="Придумайте логин"
+          value={form.login}
+          handleChange={handleChange}
+        />
         <Label
           title="Email"
           error={errorsText.emailError}
           className="form__email"
-        >
-          <Input
-            error={errorsText.emailError}
-            name="email"
-            type="email"
-            placeholder="Введите адрес электронной почты"
-            value={form.email}
-            handleChange={handleChange}
-          />
-        </Label>
+          name="email"
+          type="email"
+          placeholder="Введите адрес электронной почты"
+          value={form.email}
+          handleChange={handleChange}
+        />
         <Label
           title="Пароль"
           error={errorsText.passwordError}
           className="form__password"
-        >
-          <Input
-            error={errorsText.passwordError}
-            name="password"
-            type="password"
-            placeholder="Придумайте пароль"
-            value={form.password}
-            handleChange={handleChange}
-          />
-        </Label>
+          name="password"
+          type="password"
+          placeholder="Придумайте пароль"
+          value={form.password}
+          handleChange={handleChange}
+        />
+          
         <div className="form__button-wrap">
           <button className="form__button" disabled={disabled}>
             Зарегистрироваться

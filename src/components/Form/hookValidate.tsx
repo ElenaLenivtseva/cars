@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 type keys = 'login' | 'email' | 'password';
+
 interface errors {
   login: boolean,
   email: boolean,
@@ -44,66 +45,70 @@ const useValidateForm = () => {
   // изначально все ошибки в состоянии true, т.к. поля пустые
   const [allErrors, setAllErrors] = useState(initialErrors);
 
-  function validateForm(name: keys, value: string) {
-    function manageButton(key: keys, value: boolean) {
-      setAllErrors((prevAllErrors) => {
-        const updatedErrors = { ...prevAllErrors };
-        updatedErrors[key] = value;
-        const everythingIsValid = checkEverythingIsValid(updatedErrors);
-        // если все валидно, разблокируем кнопку
-        setDisabled(!everythingIsValid);
-        return updatedErrors;
-      });
-    }
+  function manageButton(key: keys, value: boolean) {
+    setAllErrors((prevAllErrors) => {
+      const updatedErrors = { ...prevAllErrors };
+      updatedErrors[key] = value;
+      const everythingIsValid = checkEverythingIsValid(updatedErrors);
+      // если все валидно, разблокируем кнопку
+      setDisabled(!everythingIsValid);
+      return updatedErrors;
+    });
+  }
 
-    function checkEverythingIsValid(updated:errors) {
-      const { login, email, password } = updated;
-      const anyErrorExist = login || email || password;
-      // если есть ошибка, значит не все валидно, возвращаем false
-      return !anyErrorExist;
-    }
+ 
+  function checkEverythingIsValid(updated: errors) {
+    const { login, email, password } = updated;
+    const anyErrorExist = login || email || password;
+    // если есть ошибка, значит не все валидно, возвращаем false
+    return !anyErrorExist;
+  }
 
-    let login = "";
-    let email = "";
-    let password = "";
-    let manageButtonVal:boolean = false;
-
-    // первоначальный ввод
+  function validateForm(name: keys, value:string) {
+    // первоначальный ввод - работаем только с кнопкой. Не отображаем ошибку под полем
     if (value.length < 2) {
-      manageButtonVal = true;
-      manageButton(name, manageButtonVal);
+      manageButton(name, true);
       return;
     }
-
+    // непервоначальный ввод - работаем с кнопкой и ошибкой под полями
     switch (name) {
       case "login":
-        if (value.length < 5) {
-          login = loginErrorText;
-          manageButtonVal = true;
+        // поле валидно
+        if (value.length > 4) {
+          // убрать ошибку под полем
+          setErrorsText({ ...errorsText, loginError: "" });
+          // на основе изменений поменять состояние кнопки отправки
+          manageButton(name, false);
+          // поле невалидно
+        } else {
+          // показать ошибку под полем
+          setErrorsText({ ...errorsText, loginError: loginErrorText });
+          // на основе изменений поменять состояние кнопки отправки
+          manageButton(name, true);
         }
         break;
+        
       case "password":
-        if (value.length < 8) {
-          password = passwordErrorText;
-          manageButtonVal = true;
+        if (value.length > 7) {
+          setErrorsText({ ...errorsText, passwordError: "" });
+          manageButton(name, false);
+        } else {
+          setErrorsText({ ...errorsText, passwordError: passwordErrorText });
+          manageButton(name, true);
         }
         break;
       case "email":
-        if (!isEmailValid(value)) {
-          email = emailErrorText;
-          manageButtonVal = true;
+        if (isEmailValid(value)) {
+          setErrorsText({ ...errorsText, emailError: "" });
+          manageButton(name, false);
+        } else {
+          setErrorsText({ ...errorsText, emailError: emailErrorText });
+          manageButton(name, true);
         }
         break;
       default:
         alert("Нет таких значений");
     }
-    setErrorsText({
-      ...errorsText,
-      loginError: login,
-      emailError: email,
-      passwordError: password,
-    });
-    manageButton(name, manageButtonVal);
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,16 +117,18 @@ const useValidateForm = () => {
       ...prevFormData,
       [name]: value,
     }));
-    if (name === 'login'||name === 'password'||name === 'email'){
+    if(name==='login'||name==='email'||name==='password'){
       validateForm(name, value);
     }
   };
+  
   const clean = () => {
     setForm(initialForm);
     setAllErrors(initialErrors);
     setErrorsText(initialErrorsText);
     setDisabled(true);
   };
+
   return {
     form,
     disabled,
@@ -132,3 +139,4 @@ const useValidateForm = () => {
 };
 
 export default useValidateForm;
+
