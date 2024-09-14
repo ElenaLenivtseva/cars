@@ -1,6 +1,6 @@
 import React from "react";
 
-interface LabelProps {
+interface InputProps {
   title: string;
   className: string;
   error: string;
@@ -11,10 +11,10 @@ interface LabelProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>)=> void;
 }
 
-const Label: React.FC<LabelProps> =({ title, error, className, name, type, placeholder, value, handleChange }) => {
+const Input: React.FC<InputProps> =({ title, error, className, name, type, placeholder, value, handleChange }) => {
   return (
-    <div className={`form__label-wrap ${className}`}>
-      <label className="form__label">
+    <div className={`form__label ${className}`}>
+      <label className="form__label-content">
         {title}
         <input
           className={`form__input ${error && "form__input_error"}`}
@@ -30,4 +30,4 @@ const Label: React.FC<LabelProps> =({ title, error, className, name, type, place
   );
 };
 
-export default Label;
+export default Input;

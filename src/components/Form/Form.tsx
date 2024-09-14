@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { sendForm } from "../../features/registerSlice";
 import "./Form.scss";
-import Label from "../Label/Label";
 import useValidateForm from "./hookValidate";
 import { AppDispatch } from "../../features/store";
+import Input from "../Input/Input";
 
 
 const Form = () => {
@@ -30,7 +30,7 @@ const Form = () => {
         Для того, чтобы просматривать профиль, необходимо зарегистрироваться!
       </p>
       <form className="form" onSubmit={handleSumbit}>
-        <Label
+        <Input
           title="Логин"
           error={errorsText.loginError}
           className="form__login"
@@ -40,7 +40,7 @@ const Form = () => {
           value={form.login}
           handleChange={handleChange}
         />
-        <Label
+        <Input
           title="Email"
           error={errorsText.emailError}
           className="form__email"
@@ -50,7 +50,7 @@ const Form = () => {
           value={form.email}
           handleChange={handleChange}
         />
-        <Label
+        <Input
           title="Пароль"
           error={errorsText.passwordError}
           className="form__password"

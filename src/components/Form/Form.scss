@@ -63,7 +63,7 @@
     }
 
     &:disabled {
-        background: $error;
+        background: grey;
     }
 
     @include smallTablet() {
@@ -83,7 +83,7 @@
     grid-area: password;
 }
 
-.form__label {
+.form__label-content {
     font-size: 2rem;
     font-weight: bold;
     display: flex;
